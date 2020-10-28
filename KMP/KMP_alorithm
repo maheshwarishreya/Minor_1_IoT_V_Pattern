@@ -1,0 +1,29 @@
+1. main function call
+2. declare text and pattern
+3. function call kmp_search(pass text and pattern)
+  4. void kmp_search(refernce to the pattern, reference tothe text) from 5 to 
+  5. length of pattern -> m
+  6. length of text -> n
+  7. declare an array to store the lps table 
+  8. function call to computeLPS(pass pattern, length of pattern, pass lps table) 
+    9. void computeLPS(pattern, length of pattern, lps table)
+      10. call the function computeLPS (pattern, m, lps)
+      11. declare a variable i = 1, j=0 and first value of lps table as 0
+      12. while i < m execute from steps 13 to 
+      13. check if pat[i] is equal to pat[j]
+      14. check if j is not equal to 0 then
+      15. assign j as lps[j-1]
+      16. else assign lps[i] as 0 and increment i by 1
+    17. declare i = 0 , j = 0 , res = 0
+    18. while i < n and j<m execute from step 12 to 17
+      19. check if the ith valur of text is same as jth value of pattern
+      20. increment both i and j
+      21. else 
+      22. check if j > 0 
+      23. if the condition is true then assign j as lps[j-1];
+      24. else increment i by 1
+    25. check if j is equal to m 
+    26. print pattern present
+    27. else 
+    28. print pattern not present 
+
