@@ -1,0 +1,31 @@
+
+1. function call to the main function 
+2. declare text string to store the main text
+3. declare pat string to store the pattern to be searched
+4. declare a variable q as a random prime number
+5. call to the function match(pass pattern, text, q) from 6 to 30
+ 6. calculate the length of pat and text and store them as plen and tlen
+ 7. declare variables i and j 
+ 8. declare variable rm as 1
+ 9. declare two variables to store hash of pattern and text i.e. pat_h and text_h 
+ 10. for i=0 to i<plen-1 do from 11 to 
+ 11. calculate rm = (rm * r) mod q
+ 12. pat_h = generate_hash function call
+ 13. text_h = generate_hash  function call 
+  14. generate_hash( string, length, prime number)
+  15. declare a variable h = 1
+  16. declare int variable i for loop 
+  17. for i=0 to i< length increment i by 1 do 18  
+  18. calculate the hash value as h =  (h * r + string[i]) mod q 
+  19. return h
+20. for i = 0 to i <= tlen - plen do 21 till 26
+21. check if pat_h is same as text_h
+22. if same do for j = 0 to plen increment j by 1 from 23
+23. if(text[i+j] != pat[j])
+24. then break the loop 
+25. if( j is equal to plen)
+26. print match found
+27. check if i < tlen-plen
+28. r is defined as a constant 256, check if so then change the value of text_h as (r * (text_h - text[i] * rm) + text[i + plen]) mod q
+29. check if (text_h < 0) then 
+30. make it positive by adding q
