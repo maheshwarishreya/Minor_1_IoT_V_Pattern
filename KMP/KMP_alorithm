@@ -10,7 +10,7 @@
       10. call the function computeLPS (pattern, m, lps)
       11. declare a variable i = 1, j=0 and first value of lps table as 0
       12. while i < m execute from steps 13 to 
-      13. check if pat[i] is equal to pat[j]
+      13. check if pat[i] is not equal to pat[j]
       14. check if j is not equal to 0 then
       15. assign j as lps[j-1]
       16. else assign lps[i] as 0 and increment i by 1

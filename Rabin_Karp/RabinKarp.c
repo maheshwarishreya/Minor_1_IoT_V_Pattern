@@ -27,7 +27,7 @@ void match(char pat[], char text[], int q){
     
         pat_h = generate_hash(pat, plen, q);
         text_h = generate_hash(text, plen, q);
-    
+    int var = 0;
     for(i = 0; i <= tlen - plen; i++){
         
         if(pat_h == text_h){
@@ -35,9 +35,11 @@ void match(char pat[], char text[], int q){
                 
                 if(text[i+j] != pat[j]){
                     break;
+                    
                 }
             }
              if(j == plen){
+                 var++;
                  printf("Pattern found at index %d \n", i);
              }
         }
@@ -48,11 +50,14 @@ void match(char pat[], char text[], int q){
             }
         }
     }
+    if(var == 0){
+        printf("pattern does not exists \n");
+    }
 }
  int main(){
      
-     char text[] = "Hello my name is Shreya, we study at upes, we are working on minor1";
-     char pat[] = "we";
+     char text[] = "In a team we should work with coordination";
+     char pat[] = "abc";
      int q = 101;
      match (pat, text, q);
      return 0;
