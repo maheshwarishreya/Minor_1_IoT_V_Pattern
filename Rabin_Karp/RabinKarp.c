@@ -25,8 +25,8 @@ void match(char pat[], char text[], int q){
     for(i = 0; i < plen - 1; i++)
         rm = (rm * r) % q;
     
-        pat_h = generate_hash(pat, plen, q);
-        text_h = generate_hash(text, plen, q);
+        pat_h = generate_hash(pat, plen, q); 
+        text_h = generate_hash(text, plen, q); 
     int var = 0;
     for(i = 0; i <= tlen - plen; i++){
         
@@ -63,3 +63,4 @@ void match(char pat[], char text[], int q){
      return 0;
 
  }
+ 
