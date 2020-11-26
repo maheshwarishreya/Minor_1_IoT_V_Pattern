@@ -11,6 +11,7 @@ long fsize (FILE *in)
     fseek(in, 0L, SEEK_END);
     length = ftell(in);
     fseek(in, pos, SEEK_SET);
+    printf("length = %ld \n", length);
     return length;
 }
 char* fileread(char* filename){
@@ -33,6 +34,9 @@ char* fileread(char* filename){
       }
       return text;
 }
+double getMilliseconds() {
+    return  clock() / CLOCKS_PER_SEC;
+}
 int main(){
     clock_t start, end;
     double totalTime;
@@ -48,16 +52,26 @@ int main(){
          return 0;
      }
     //  printf("%s\n",inputText);
-    //  printf("%s\n",inputPattern);
-        start = clock()*10000;
+    //  printf("%s\n",inputPattern); 
+        double sv;
+         clock_t startKmp, endKmp;
+        // sv = -getMilliseconds();
+        startKmp = clock();
         bool resKMP = executeKMP(inputPattern, inputText);
         printf(resKMP ? "true \n" : "false \n");
-         end = clock()*10000000;
-        totalTime = (double)(end - start);
-        printf("%f \n", totalTime);
+        endKmp = clock();
+        //   sv += getMilliseconds();
+        double resKMPi = (double)(endKmp - startKmp) / CLOCKS_PER_SEC;
+        printf("Elapsed Milliseconds = %f\n", resKMPi);
+        start = clock();
         bool resRabinKarp = executeRabinKarp(inputPattern, inputText);
         printf(resRabinKarp ? "true \n" : "false \n");
-         
+          end = clock();
+
+        totalTime = (double)(end - start)/CLOCKS_PER_SEC;
+        printf("%ld \n", start);
+         printf("%ld \n", end);
+         printf("elapsed time %f \n", totalTime);
          bool resBoyerMoore= executeBoyerMoore(inputPattern, inputText);
         printf(resBoyerMoore ? "true \n" : "false \n");
       return 0;
