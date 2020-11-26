@@ -1,8 +1,9 @@
 #include<stdio.h> 
 #include<string.h>
+#include <stdbool.h>
 void computeLPS(char* pat,int m,int* lps);
 
-void kmp_search(char* pat,char* text){
+bool kmp_search(char* pat,char* text){
     int m = strlen(pat);
     int n = strlen(text);
     int lps[m];
@@ -25,11 +26,11 @@ void kmp_search(char* pat,char* text){
         }
     }
     if(j == m){
-       printf("pattern present\n");
+       return true;
     }
     else
     {
-        printf("pattern doesnot exist \n");
+        return false;
     }
     
 }
@@ -54,9 +55,7 @@ void computeLPS(char* pat,int m,int* lps){
         } 
     } 
 }
-int main(){
-    char text[] = "abcabdabaabb";
-    char pat[] = "aba";
-    kmp_search(pat,text);
-    return 0;
-}
+ bool executeKMP(char *pat, char *text){ 
+   bool result = kmp_search(pat, text);
+   return result;
+ }

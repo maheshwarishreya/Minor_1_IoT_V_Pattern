@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<string.h>
+#include<stdbool.h>
 #define r 256
 
 int generate_hash(char s[], int a, int q){
@@ -13,7 +14,7 @@ int generate_hash(char s[], int a, int q){
     return h;
 }
 
-void match(char pat[], char text[], int q){
+bool match(char pat[], char text[], int q){
     
     int plen = strlen(pat);
     int tlen = strlen(text);
@@ -40,7 +41,7 @@ void match(char pat[], char text[], int q){
             }
              if(j == plen){
                  var++;
-                 printf("Pattern found at index %d \n", i);
+                 return true;
              }
         }
         if(i < tlen - plen){
@@ -51,16 +52,20 @@ void match(char pat[], char text[], int q){
         }
     }
     if(var == 0){
-        printf("pattern does not exists \n");
+       return false;
     }
 }
- int main(){
+//  int main(){
      
-     char text[] = "In a team we should work with coordination";
-     char pat[] = "abc";
-     int q = 101;
-     match (pat, text, q);
-     return 0;
+//      char text[] = "In a team we should work with coordination";
+//      char pat[] = "abc";
+//      int q = 101;
+//      match (pat, text, q);
+//      return 0;
 
+//  }
+ bool executeRabinKarp(char *pat, char *text){ 
+   bool result =match(pat, text, 101);
+   return result;
  }
  
