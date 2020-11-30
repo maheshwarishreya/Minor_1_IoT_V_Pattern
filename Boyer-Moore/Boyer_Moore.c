@@ -2,6 +2,7 @@
 #include<string.h>
 #include<stdio.h>
 #include<stdbool.h>
+#include<stdlib.h>
 #define totalChars 256
 
 int max(int, int);
@@ -28,7 +29,8 @@ void table(char *str, int len, int tab[totalChars]){
 bool search(char *pat, char *txt){
     int m = strlen(pat);
     int n = strlen(txt);
-    int tab[totalChars];
+    //int *tab[totalChars];
+    int *tab = (int *)malloc(totalChars * sizeof(int));
     table(pat, m, tab);
     int s = 0; 
     int flag = 0;
@@ -53,3 +55,40 @@ bool executeBoyerMoore(char *pat, char *text){
    bool result = search(pat, text);
    return result;
  }
+
+ /*int  boyermoorematch(char S[ ], char P[ ])‏
+{
+	int n, m, i, j, lastch;  n = strlen(S);  m = strlen(P);
+	i = m – 1; j = m – 1;
+	while  (i < n) 		//  not end of string S
+		if  (P[j] == S[i])  
+			if  (j == 0) 	// first char of pattern
+				return  i;
+			else
+			{
+				j--;  i--;	//  go left
+			}
+		else		//  no match – find char in pattern
+		{
+			lastch = find(P, S[i]);
+			if  (lastch == -1) 	// not found
+				i = i + m;		// jump over
+			else
+				i = i + j – lastch;	// align char
+			j = m – 1;	// restart from right
+		}
+	return  -1;	//  not matched
+}
+
+int  find(char P[ ], char  ch)‏
+{
+	int m, i;  m = length(P);
+	for  (i = m – 2; i >= 0; i--)‏
+	{
+		if  (ch == P[i])‏
+		{
+			return  i;
+		}
+	}
+	return  -1;
+}*/
