@@ -4,8 +4,7 @@
 #include<stdlib.h>
 #include<time.h>
 
-long fsize (FILE *in)
-{
+long fsize (FILE *in){
     long pos, length;
     pos = ftell(in);
     fseek(in, 0L, SEEK_END);
@@ -35,11 +34,13 @@ char* fileread(char* filename){
       return text;
 }
 double getMilliseconds() {
-    return  clock() / CLOCKS_PER_SEC;
+    return 10000.0* clock() / CLOCKS_PER_SEC;
 }
 int main(){
+    time_t a, b;
+    a = time(NULL);
     clock_t start, end;
-    double totalTime;
+    long long int totalTime;
     printf("enter the text file name with extension \n");
     char filename[100];
     char filename2[100];
@@ -55,24 +56,27 @@ int main(){
     //  printf("%s\n",inputPattern); 
         double sv;
          clock_t startKmp, endKmp;
-        // sv = -getMilliseconds();
+         sv = -getMilliseconds();
         startKmp = clock();
         bool resKMP = executeKMP(inputPattern, inputText);
-        printf(resKMP ? "true \n" : "false \n");
+        printf(resKMP ? "Kmp result is true \n" : "KMP result is false \n");
         endKmp = clock();
-        //   sv += getMilliseconds();
+          sv += getMilliseconds();
         double resKMPi = (double)(endKmp - startKmp) / CLOCKS_PER_SEC;
-        printf("Elapsed Milliseconds = %f\n", resKMPi);
+         printf("Elapsed Milliseconds actual = %f\n", sv);
+        printf("Elapsed seconds = %f\n", resKMPi);
         start = clock();
         bool resRabinKarp = executeRabinKarp(inputPattern, inputText);
-        printf(resRabinKarp ? "true \n" : "false \n");
+        printf(resRabinKarp ? "rabin karp result is true \n" : "rabin karp result is false \n");
           end = clock();
-
-        totalTime = (double)(end - start)/CLOCKS_PER_SEC;
+        totalTime = (long long int)(end - start);
         printf("%ld \n", start);
          printf("%ld \n", end);
-         printf("elapsed time %f \n", totalTime);
+         printf("elapsed time total time %lld \n", totalTime);
          bool resBoyerMoore= executeBoyerMoore(inputPattern, inputText);
-        printf(resBoyerMoore ? "true \n" : "false \n");
+         b = time(NULL);
+         printf("difference is %ld",(b-a));
+        printf(resBoyerMoore ? "boyer moore result is true \n" : "boyer moore result is false \n");
+
       return 0;
 }

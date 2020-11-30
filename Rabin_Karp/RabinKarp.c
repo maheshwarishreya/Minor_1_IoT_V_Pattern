@@ -68,4 +68,3 @@ bool match(char pat[], char text[], int q){
    bool result =match(pat, text, 101);
    return result;
  }
- 
