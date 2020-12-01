@@ -3,7 +3,18 @@
 #include "./Boyer-Moore/Boyer_Moore.c"
 #include "./SelfMade/SelfMade.c"
 #include <stdlib.h>
-#include <time.h>
+#include <unistd.h>
+#include <sys/time.h>
+//#define ANSI_COLOR_MAGENTA "\x1b[35m"
+//#define ANSI_COLOR_YELLOW  "\x1b[33m"
+
+
+long gettime()
+{
+  struct timeval start;
+  gettimeofday(&start, NULL);
+  return start.tv_sec * 1000000 + start.tv_usec;
+}
 
 long fsize(FILE *in)
 {
@@ -12,7 +23,6 @@ long fsize(FILE *in)
   fseek(in, 0L, SEEK_END);
   length = ftell(in);
   fseek(in, pos, SEEK_SET);
-  printf("length = %ld \n", length);
   return length;
 }
 char *fileread(char *filename)
@@ -39,16 +49,9 @@ char *fileread(char *filename)
   }
   return text;
 }
-double getMilliseconds()
-{
-  return 10000.0 * clock() / CLOCKS_PER_SEC;
-}
+
 int main()
 {
-  time_t a, b;
-  a = time(NULL);
-  clock_t start, end;
-  long long int totalTime;
   printf("enter the text file name with extension \n");
   char filename[100];
   char filename2[100];
@@ -61,33 +64,25 @@ int main()
   {
     return 0;
   }
-  //  printf("%s\n",inputText);
-  //  printf("%s\n",inputPattern);
-  double sv;
-  clock_t startKmp, endKmp;
-  sv = -getMilliseconds();
-  startKmp = clock();
+  long startSelf = gettime();
+  bool self = executeSelf(inputPattern, inputText);
+  printf(self ? "self executed algorithm is true \n" : "self executed program is false \n");
+  long endSelf = gettime();
+  printf("self result %ld\n", (endSelf - startSelf));
+  long startKMP = gettime();
   bool resKMP = executeKMP(inputPattern, inputText);
-  printf(resKMP ? "Kmp result is true \n" : "KMP result is false \n");
-  endKmp = clock();
-  sv += getMilliseconds();
-  double resKMPi = (double)(endKmp - startKmp) / CLOCKS_PER_SEC;
-  printf("Elapsed Milliseconds actual = %f\n", sv);
-  printf("Elapsed seconds = %f\n", resKMPi);
-  start = clock();
+  printf(resKMP ? "KMP result is true \n" : "KMP result is false \n");
+  long endKMP = gettime();
+  printf("kmp result %ld\n", (endKMP - startKMP));
+  long startRK = gettime();
   bool resRabinKarp = executeRabinKarp(inputPattern, inputText);
   printf(resRabinKarp ? "rabin karp result is true \n" : "rabin karp result is false \n");
-  bool self = executeSelf(inputPattern, inputText);
-  printf(self ? "self executed program is true \n" : "self executed program is false \n");
-  end = clock();
-  totalTime = (long long int)(end - start);
-  printf("%ld \n", start);
-  printf("%ld \n", end);
-  printf("elapsed time total time %lld \n", totalTime);
-  bool resBoyerMoore= executeBoyerMoore(inputPattern, inputText);
-  b = time(NULL);
-  printf("difference is %ld", (b - a));
+  long endRK = gettime();
+  printf("rk result %ld\n", (endRK - startRK));
+  long startBM = gettime();
+  bool resBoyerMoore = executeBoyerMoore(inputPattern, inputText);
   printf(resBoyerMoore ? "boyer moore result is true \n" : "boyer moore result is false \n");
-
+  long endBM = gettime();
+  printf("BM result %ld\n", (endBM - startBM));
   return 0;
 }

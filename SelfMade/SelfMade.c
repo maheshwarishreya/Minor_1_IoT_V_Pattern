@@ -4,7 +4,7 @@
 #include<string.h>
 #define r 256
 
-int generate_hash2(char s[], int a, int q){
+int hash(char s[], int a, int q){
     int h = 0;
     int i;
     
@@ -13,7 +13,7 @@ int generate_hash2(char s[], int a, int q){
     }
     return h;
 }
-bool match2(char pat[], char text1[], char text2[], int q){
+bool match_self(char pat[], char text1[], char text2[], int q){
     
     int plen = strlen(pat);
     int t1len = strlen(text1);
@@ -26,9 +26,9 @@ bool match2(char pat[], char text1[], char text2[], int q){
     for(i = 0; i < plen - 1; i++)
         rm = (rm * r) % q;
     
-        pat_h = generate_hash2(pat, plen, q); 
-        text1_h = generate_hash2(text1, plen, q); 
-        text2_h = generate_hash2(text2, plen, q);
+        pat_h = hash(pat, plen, q); 
+        text1_h = hash(text1, plen, q); 
+        text2_h = hash(text2, plen, q);
     int var = 0;
     int cap = 0;
     for(i = 0,  k = 0; i <= t1len - plen; i++, k++){
@@ -63,7 +63,6 @@ bool match2(char pat[], char text1[], char text2[], int q){
     }
 }
     bool executeSelf(char *pat, char *text){ 
-    printf("%s", "Hello World");
     int lPattern = strlen(pat);
     int lText = strlen(text);
     int lTextFirstHalf = lText/2 + lPattern;// 10
@@ -78,22 +77,11 @@ bool match2(char pat[], char text1[], char text2[], int q){
     for(i = 0; i < lTextFirstHalf; i++){
         new_text1[i] = text[i]; 
     }
-    //printf("%d \n", lText);
-    //printf("%d \n", lPattern);
     int var = (lText - ((lText - lText/2) + lPattern));
-    printf("%d \n",var);
     for(i = 0; i < lTextSecondHalf; i++){
-        new_text2[i] = text[i + var ];// 0+(15-(15-7)+3)= (15-8+3) =(4)
+        new_text2[i] = text[i + var ];
     }
- 
-    // for(i = 0; i < lTextFirstHalf; i++){
-    //     printf("%c", new_text1[i]); 
-    // }
-    // printf("\n");
-    // for(i = 0; i < lTextSecondHalf; i++){
-    //     printf("%c",new_text2[i]);// 0+()
-    // }
-      bool result = match2(pat, new_text1, new_text2, 101);
+    bool result = match_self(pat, new_text1, new_text2, 101);
     return result;
     }
 /*  text = 0s 1h 2a 3s 4h 5a 6b 7g 8v 9b 10s 11h 12a 13h 14a = 15 15/2 = 7
@@ -111,9 +99,3 @@ bool match2(char pat[], char text1[], char text2[], int q){
     pat = bvb 3 
     text2 = (15- 7 ) 8+3 = 11 yabvbshreya (15 - 11 = 4)
   */
-//  int main(){
-//      bool var = executeSelf( "bvb","shreyabvbshreya");
-//      printf("\n");
-//     printf("%d",var);
-//      return 0;
-//  }
