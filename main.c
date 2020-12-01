@@ -5,8 +5,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/time.h>
-//#define ANSI_COLOR_MAGENTA "\x1b[35m"
-//#define ANSI_COLOR_YELLOW  "\x1b[33m"
+#define ANSI_COLOR_MAGENTA "\x1b[35m"
+#define ANSI_COLOR_YELLOW  "\x1b[33m"
+#define ANSI_COLOR_GREEN   "\x1b[32m"
+#define ANSI_COLOR_RESET   "\x1b[0m"
 
 
 long gettime()
@@ -52,6 +54,11 @@ char *fileread(char *filename)
 
 int main()
 {
+  printf("\n");
+  printf("\n");
+  printf(ANSI_COLOR_GREEN  "**********************WELCOME*********************"  ANSI_COLOR_RESET "\n");
+  printf("\n");
+  printf("\n");
   printf("enter the text file name with extension \n");
   char filename[100];
   char filename2[100];
@@ -64,25 +71,47 @@ int main()
   {
     return 0;
   }
+  printf(ANSI_COLOR_YELLOW "--------------------------------------------------------------------------------------------------" ANSI_COLOR_RESET "\n");
+  printf("\n");
+  printf(ANSI_COLOR_MAGENTA "SELF MADE ALGORITHM" ANSI_COLOR_RESET "\n");
+  printf("\n");
   long startSelf = gettime();
   bool self = executeSelf(inputPattern, inputText);
-  printf(self ? "self executed algorithm is true \n" : "self executed program is false \n");
+  printf(self ? "Self Made algorithm found the pattern match in the text \n" : "Self Made algorithm did not find the pattern match in the text \n");
   long endSelf = gettime();
-  printf("self result %ld\n", (endSelf - startSelf));
+  printf("time taken %ld\n", (endSelf - startSelf));
+  printf(ANSI_COLOR_YELLOW "--------------------------------------------------------------------------------------------------" ANSI_COLOR_RESET "\n");
+  printf("\n");
+  printf(ANSI_COLOR_MAGENTA "KNUTH MORRIS PRATT(KMP) ALGORITHM" ANSI_COLOR_RESET "\n");
+  printf("\n");
   long startKMP = gettime();
   bool resKMP = executeKMP(inputPattern, inputText);
-  printf(resKMP ? "KMP result is true \n" : "KMP result is false \n");
+  printf(resKMP ? "KMP algorithm found the pattern match in the text \n" : "KMP algorithm did not find the pattern match in the text \n");
   long endKMP = gettime();
-  printf("kmp result %ld\n", (endKMP - startKMP));
+  printf("time taken %ld\n", (endKMP - startKMP));
+  printf(ANSI_COLOR_YELLOW "--------------------------------------------------------------------------------------------------" ANSI_COLOR_RESET "\n");
+  printf("\n");
+  printf(ANSI_COLOR_MAGENTA "RABIN KARP ALGORITHM" ANSI_COLOR_RESET "\n");
+  printf("\n");
   long startRK = gettime();
   bool resRabinKarp = executeRabinKarp(inputPattern, inputText);
-  printf(resRabinKarp ? "rabin karp result is true \n" : "rabin karp result is false \n");
+  printf(resRabinKarp ? "Rabin Karp algorithm found the pattern match in the text \n" : "Rabin Karp algorithm did not find the pattern match in the text \n");
   long endRK = gettime();
-  printf("rk result %ld\n", (endRK - startRK));
+  printf("time taken %ld\n", (endRK - startRK));
+  printf(ANSI_COLOR_YELLOW "--------------------------------------------------------------------------------------------------" ANSI_COLOR_RESET "\n");
+  printf("\n");
+  printf(ANSI_COLOR_MAGENTA "BOYER MOORE ALGORITHM" ANSI_COLOR_RESET "\n");
+  printf("\n");
   long startBM = gettime();
   bool resBoyerMoore = executeBoyerMoore(inputPattern, inputText);
-  printf(resBoyerMoore ? "boyer moore result is true \n" : "boyer moore result is false \n");
+  printf(resBoyerMoore ? "Boyer Moore algorithm found the pattern match in the text \n" : "Boyer Moore algorithm did not find the pattern match in the text \n");
   long endBM = gettime();
-  printf("BM result %ld\n", (endBM - startBM));
+  printf("time taken %ld\n", (endBM - startBM));
+  printf(ANSI_COLOR_YELLOW "--------------------------------------------------------------------------------------------------" ANSI_COLOR_RESET "\n");
+  printf("\n");
+  printf("\n");
+  printf(ANSI_COLOR_GREEN  "**********************END*********************"  ANSI_COLOR_RESET "\n");
+  printf("\n");
+  printf("\n");
   return 0;
 }
