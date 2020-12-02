@@ -79,7 +79,7 @@ int main()
   bool self = executeSelf(inputPattern, inputText);
   printf(self ? "Self Made algorithm found the pattern match in the text \n" : "Self Made algorithm did not find the pattern match in the text \n");
   long endSelf = gettime();
-  printf("time taken %ld\n", (endSelf - startSelf));
+  printf("time taken  %ld microseconds \n", (endSelf - startSelf));
   printf(ANSI_COLOR_YELLOW "--------------------------------------------------------------------------------------------------" ANSI_COLOR_RESET "\n");
   printf("\n");
   printf(ANSI_COLOR_MAGENTA "KNUTH MORRIS PRATT(KMP) ALGORITHM" ANSI_COLOR_RESET "\n");
@@ -88,7 +88,7 @@ int main()
   bool resKMP = executeKMP(inputPattern, inputText);
   printf(resKMP ? "KMP algorithm found the pattern match in the text \n" : "KMP algorithm did not find the pattern match in the text \n");
   long endKMP = gettime();
-  printf("time taken %ld\n", (endKMP - startKMP));
+  printf("time taken  %ld  microseconds \n", (endKMP - startKMP));
   printf(ANSI_COLOR_YELLOW "--------------------------------------------------------------------------------------------------" ANSI_COLOR_RESET "\n");
   printf("\n");
   printf(ANSI_COLOR_MAGENTA "RABIN KARP ALGORITHM" ANSI_COLOR_RESET "\n");
@@ -97,7 +97,7 @@ int main()
   bool resRabinKarp = executeRabinKarp(inputPattern, inputText);
   printf(resRabinKarp ? "Rabin Karp algorithm found the pattern match in the text \n" : "Rabin Karp algorithm did not find the pattern match in the text \n");
   long endRK = gettime();
-  printf("time taken %ld\n", (endRK - startRK));
+  printf("time taken  %ld  microseconds \n", (endRK - startRK));
   printf(ANSI_COLOR_YELLOW "--------------------------------------------------------------------------------------------------" ANSI_COLOR_RESET "\n");
   printf("\n");
   printf(ANSI_COLOR_MAGENTA "BOYER MOORE ALGORITHM" ANSI_COLOR_RESET "\n");
@@ -106,7 +106,7 @@ int main()
   bool resBoyerMoore = executeBoyerMoore(inputPattern, inputText);
   printf(resBoyerMoore ? "Boyer Moore algorithm found the pattern match in the text \n" : "Boyer Moore algorithm did not find the pattern match in the text \n");
   long endBM = gettime();
-  printf("time taken %ld\n", (endBM - startBM));
+  printf("time taken  %ld  microseconds \n", (endBM - startBM));
   printf(ANSI_COLOR_YELLOW "--------------------------------------------------------------------------------------------------" ANSI_COLOR_RESET "\n");
   printf("\n");
   printf("\n");
