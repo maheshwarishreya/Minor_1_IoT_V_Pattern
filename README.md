@@ -344,7 +344,7 @@ Boyer Moore Algorithm
 
 In this procedure, the substring or pattern is searched from the last character of the pattern. When a substring of main string matches with a substring of the pattern, it moves to find other occurrences of the matched substring. It can also move to find a prefix of the pattern which is a suffix of main string. Executing the executeBoyer Moore Function and creating the table for the text then searching for the pattern in the file.
 
-Data Flow Diagram
+# <center>Data Flow Diagram</center>
 
 ![](screenshots/DFD.jpg)
 
@@ -357,7 +357,9 @@ The Comparative Study of the Pattern Matching Algorithms on analyzing all the Al
   
 
 ![](screenshots/result_table.PNG)
-The outputs of the programs are given below:- 
+
+# <center>The outputs of the programs are given below:- </center>
+
 ![](screenshots/output1.PNG)
 
 ![](screenshots/output2.JPEG)
@@ -394,107 +396,7 @@ The outputs of the programs are given below:-
 
 ### <center>Knuth Morris Pratt Algorithm</center>
 
-```
-
-void kmp_search(char* pat,char* text){
-
-int m=strlen(pat);
-
-int n=strlen(text);
-
-int lps[m];
-
-computeLPS(pat,m,lps);
-
-int i=0;
-
-int j=0;
-
-int res=0;
-
-while(i<n && j<m){
-
-if(text[i]==pat[j]){
-
-i++;
-
-j++;
-
-}
-
-else{
-
-if(j>0){
-
-j=lps[j-1];
-
-}
-
-else{
-
-i++;
-
-}
-
-}
-
-}
-
-if(j==m){
-
-printf("pattern present");
-
-}
-
-else
-
-{
-
-printf("pattern doesnot exist");
-
-}
-
-}
-
-void computeLPS(char* pat,int m,int* lps){
-
-int i = 1;
-
-lps[0] = 0;
-
-int j=0;
-
-while (i < m){
-
-if (pat[i] == pat[j]){
-
-if(j!=0){
-
-j=lps[j-1];
-
-}
-
-else{
-
-lps[i]=0;
-
-i++;
-
-} }
-
-else{
-
-lps[i]=(j+1);
-
-i++;
-
-j++;
-
-}
-
-} }
-
-```
+[a relative link](/KMP/kmp.c)
 
 ###  <center>Rabin Karp Algorithm</center>
 
