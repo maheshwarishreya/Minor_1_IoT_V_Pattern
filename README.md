@@ -70,7 +70,7 @@ Until now Boyer-Moore is considered as the most efficient algorithm for pattern 
 
   
 
-Rabin-Karp Algorithm:
+### Rabin-Karp Algorithm:
 
 Rabin Karp Algorithm works very similar to the brute force approach or the naive pattern matching algorithm, in which we traverse step by step while matching each character. Very similar to this is Rabin-Karp algorithm in which we once match the hash value of the substring if the hash value is matched then only we start with the matching of the characters individually. It algorithm uses hash functions and the rolling hash technique. A hash function is a function that maps the data of arbitrary size to fixed size values returning a values called hash values, hash codes, digests or hashes.
 
