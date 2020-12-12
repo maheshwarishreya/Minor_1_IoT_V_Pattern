@@ -16,7 +16,7 @@ Keywords: Data, Matching, Searching, Memory and Time Complexity, Hash codes, C.
 
   
 
-## <center>Motivation of the Work
+## <center>Motivation of the Work</center>
 
   
 
@@ -32,7 +32,7 @@ Sub objective-
 
   
 
-## <center>Problem Statements
+## <center>Problem Statements</center>
 
   
 
@@ -56,7 +56,7 @@ When working with data in researches and studies, searching is a common method w
 
   
 
-## <center>Literature Review
+## <center>Literature Review</center>
 
 Knuth, Morris and Pratt discovered first linear time string-matching algorithm by following a tight analysis of the naïve algorithm. Knuth-Morris-Pratt algorithm keeps the information that naïve approach wasted gathered during the scan of the text. The algorithm was conceived by James H. Morris and independently discovered by Donald Knuth "a few weeks later" from automata theory. Morris and Vaughan Pratt published a technical report in 1970. [1]  [2]
 
@@ -66,7 +66,7 @@ Until now Boyer-Moore is considered as the most efficient algorithm for pattern 
 
   
 
-## <center>Methodology
+## <center>Methodology</center>
 
   
 
@@ -86,7 +86,7 @@ Steps for Rabin-Karp algorithm:
 
   
 
-## <center> Algorithm
+## <center> Algorithm</center>
 
 ```
 
@@ -160,13 +160,13 @@ STEP 17 End Function
 
   
 
-##  <center>Knuth Morris Pratt Algorithm
+##  <center>Knuth Morris Pratt Algorithm</center>
 
 Knuth Morris Pratt Algorithm is based on the concept of generating a suffix-prefix table also known as the Pi table or the lps table. The pi table is generated using the substring (this is the pre-processing part). The way to generate the substring is the main part in this algorithm. The main concept behind this approach is we save the pattern. As soon as we detect the mismatch while searching for the pattern we already know a part of the pattern in the next window.
 
   
 
-###  <center>Algorithm
+###  <center>Algorithm</center>
 
   
 
@@ -232,13 +232,13 @@ STEP 4 End Function
 
 ```
 
-## <center>Boyer-Moore Algorithm
+## <center>Boyer-Moore Algorithm</center>
 
   
 
 Boyer-Moore Algorithm unlike the other two algorithm starts matching from the last character of the pattern. In this algorithm we create two approaches , the bad character heuristic and the good suffix heuristic. In this approach we shift the character which is initially in the mismatch state and bring it to a position where a match is found. Upon comparing the last character of the pattern if the match is not found the entire pattern is shifted by the length of the pattern.[5]
 
-### <center>Algorithm
+### <center>Algorithm</center>
 
 ```
 
@@ -286,11 +286,11 @@ STEP 3 End Function
 
   
 
-## <center>Self Designed Algorithm:
+## <center>Self Designed Algorithm:</center>
 
   
 
-### <center>Algorithm
+### <center>Algorithm</center>
 
   
 
@@ -316,11 +316,11 @@ STEP 3. End Function
 
 ```
 
-# <center>Implementation:
+# <center>Implementation:</center>
 
-## <center>Flow Charts
+## <center>Flow Charts</center>
 
-## <center>Rabin-Karp Algorithm
+## <center>Rabin-Karp Algorithm</center>
 
 ![](screenshots/RabinKarpAlgorithm.jpg)
 
@@ -328,7 +328,7 @@ The above given flow chart describes the working of Rabin Karp Algorithm. This i
 
   
 
-## <center>Knuth Morris Pratt Algorithm
+## <center>Knuth Morris Pratt Algorithm</center>
 
   
 
@@ -350,7 +350,7 @@ Data Flow Diagram
 
   
 
-# <center>Result and Discussions
+# <center>Result and Discussions</center>
 
 The Comparative Study of the Pattern Matching Algorithms on analyzing all the Algorithms with different types of input. This a comparison table for the different time taken by the algorithm The result is as shown in the table below:
 
@@ -372,7 +372,7 @@ The outputs of the programs are given below:-
 
   
 
-## <center>References
+## <center>References</center>
 
   
 
@@ -390,9 +390,9 @@ The outputs of the programs are given below:-
 
   
 
-# <center>Appendix 1: Code Snippets
+# <center>Appendix 1: Code Snippets</center>
 
-### <center>Knuth Morris Pratt Algorithm
+### <center>Knuth Morris Pratt Algorithm</center>
 
 ```
 
@@ -496,7 +496,7 @@ j++;
 
 ```
 
-###  <center>Rabin Karp Algorithm
+###  <center>Rabin Karp Algorithm</center>
 
 ```
 
@@ -574,7 +574,7 @@ return 0;
 
   
 
-### <center>Boyer Moore Algorithm
+### <center>Boyer Moore Algorithm</center>
 
   
 
@@ -642,7 +642,7 @@ return result;
 
   
 
-### <center>Self Designed Algorithm
+### <center>Self Designed Algorithm</center>
 
 ```
 
