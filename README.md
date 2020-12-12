@@ -392,202 +392,20 @@ The Comparative Study of the Pattern Matching Algorithms on analyzing all the Al
 
   
 
-# <center>Appendix 1: Code Snippets</center>
+# <center>Appendix 1: Codes </center>
 
-### <center>Knuth Morris Pratt Algorithm</center> [a relative link](/KMP/kmp.c)
+### <center>Knuth Morris Pratt Algorithm</center> 
+
+[Click to open the KMP code](/KMP/kmp.c)
 
 ###  <center>Rabin Karp Algorithm</center>
 
-```
-
-void match(char pat[], char text[], int q){
-
-int plen = strlen(pat);
-
-int tlen = strlen(text);
-
-int i, j;
-
-int rm = 1;
-
-int pat_h = 0;
-
-int text_h = 0;
-
-for(i = 0; i < plen - 1; i++)
-
-rm = (rm * r) % q;
-
-pat_h = generate_hash(pat, plen, q);
-
-text_h = generate_hash(text, plen, q);
-
-for(i = 0; i <= tlen - plen; i++){
-
-if(pat_h == text_h){
-
-for(j = 0; j < plen; j++){
-
-if(text[i+j] != pat[j]){
-
-break;
-
-}
-
-}
-
-if(j == plen){
-
-printf("Pattern found at index %d \n", i);
-
-}
-
-}
-
-if(i < tlen - plen){
-
-text_h = (r * (text_h - text[i] * rm) + text[i + plen]) % q;
-
-if(text_h < 0){
-
-text_h = (text_h + q);
-
-}
-
-} } }
-
-int main(){
-
-char text[] = "Hello my name is Shreya, we study at upes, we are working on minor1";
-
-char pat[] = "we";
-
-int q = 101;
-
-match (pat, text, q);
-
-return 0;
-
-}
-
-```
-
-  
+[Click to open the Rabin Karp Algorithm code](/Rabin_Karp/RabinKarp.c)
 
 ### <center>Boyer Moore Algorithm</center>
 
-  
-
-```
-
-bool search(char *pat, char *txt){
-
-int m = strlen(pat);
-
-int n = strlen(txt);
-
-//int *tab[totalChars];
-
-int *tab = (int *)malloc(totalChars * sizeof(int));
-
-table(pat, m, tab);
-
-int s = 0;
-
-int flag = 0;
-
-while(s <= (n - m))
-
-{
-
-int j = m-1;
-
-while(j >= 0 && pat[j] == txt[s+j])
-
-j--;
-
-if (j < 0)
-
-{
-
-flag++;
-
-return true;
-
-s += (s+m < n)? m-tab[txt[s+m]] : 1;
-
-}
-
-else
-
-s += max(1, j - tab[txt[s+j]]);
-
-}
-
-if(flag == 0)
-
-return false;
-
-}
-
-bool executeBoyerMoore(char *pat, char *text){
-
-bool result = search(pat, text);
-
-return result;
-
-}
-
-```
-
-  
+[Click to open the Boyer Moore Algorithm code](/Boyer-Moore/Boyer_Moore.c)
 
 ### <center>Self Designed Algorithm</center>
 
-```
-
-bool executeSelf(char *pat, char *text){
-
-int lPattern = strlen(pat);
-
-int lText = strlen(text);
-
-int lTextFirstHalf = lText/2 + lPattern;// 10
-
-int lTextSecondHalf = lText - lText/2 + lPattern;//11
-
-char *new_text1;
-
-char *new_text2;
-
-// char new_text1[lTextFirstHalf];
-
-// char new_text2[lTextSecondHalf];
-
-new_text1 = (char *)malloc(lTextFirstHalf * sizeof(char));
-
-new_text2 = (char *)malloc(lTextSecondHalf * sizeof(char));
-
-int i;
-
-for(i = 0; i < lTextFirstHalf; i++){
-
-new_text1[i] = text[i];
-
-}
-
-int var = (lText - ((lText - lText/2) + lPattern));
-
-for(i = 0; i < lTextSecondHalf; i++){
-
-new_text2[i] = text[i + var ];
-
-}
-
-bool result = match_self(pat, new_text1, new_text2, 101);
-
-return result;
-
-}
-
-```
+[Click to open the Self Designed Algorithm code](/SelfMade/SelfMade.c)
