@@ -394,9 +394,7 @@ The Comparative Study of the Pattern Matching Algorithms on analyzing all the Al
 
 # <center>Appendix 1: Code Snippets</center>
 
-### <center>Knuth Morris Pratt Algorithm</center>
-
-[a relative link](/KMP/kmp.c)
+### <center>Knuth Morris Pratt Algorithm</center> [a relative link](/KMP/kmp.c)
 
 ###  <center>Rabin Karp Algorithm</center>
 
