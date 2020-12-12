@@ -360,5 +360,5 @@ bool executeSelf(char *pat, char *text){
     bool result = match_self(pat, new_text1, new_text2, 101);
     return result;
     }
-    ```
+```
 
