@@ -1,4 +1,4 @@
-# <center> ***“A COMPARATIVE STUDY OF STRING PATTERN MATCHING ALGORITHMS”*** </center>
+# <center>***“A COMPARATIVE STUDY OF STRING PATTERN MATCHING ALGORITHMS”***</center>
 
 ## <center>Introduction</center>
 
