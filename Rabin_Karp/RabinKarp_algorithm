@@ -29,3 +29,4 @@
 28. r is defined as a constant 256, check if so then change the value of text_h as (r * (text_h - text[i] * rm) + text[i + plen]) mod q
 29. check if (text_h < 0) then 
 30. make it positive by adding q
+31. End function

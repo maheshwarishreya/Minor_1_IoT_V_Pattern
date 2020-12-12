@@ -17,4 +17,4 @@
     12. else do s+ = max(1, j-tab[txt[s+j]])
     13. end while
     14. check if flag == 0 return false
-3. End
+3. End function
