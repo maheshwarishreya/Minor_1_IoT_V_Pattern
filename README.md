@@ -330,15 +330,15 @@ The above given flow chart describes the working of Rabin Karp Algorithm. This i
 
 ## <center>Knuth Morris Pratt Algorithm</center>
 
-  
 
 ![](screenshots/KMPFlowChart.jpg)
 
 The above shown flow chart diagram describes the working of the Knuth Morris Pratt Algorithm. The steps proceed with the generation of the lps table. In the entire flow of the sequence we are creating the lps table to store the previous occurance of characters lf we find the occurance of the characters again in the text we directly start the matching from the point we last found the sequence in the table.
 
-Boyer Moore Algorithm
+## <center>Boyer Moore Algorithm</center>
 
-![](screenshots/BoyerMooreFlowChart.jpg)
+
+![](screenshots/BoyerMooreFlowchart.jpg)
 
   
 
